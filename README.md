@@ -8,7 +8,7 @@ These instructions will help you get a copy of the project up and running on you
 
 ### Installation
 
-A step-by-step guide on how to install your project locally.
+A step-by-step guide on how to install application and run locally.
 
 ```bash
 # Clone the repository
