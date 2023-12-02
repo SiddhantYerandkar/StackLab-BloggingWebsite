@@ -26,7 +26,7 @@ const createAuthor = async function (req, res, next) {
 
         if (!password) return res.status(400).send({ status: false, msg: "password is required" });
         if (!isValidPassword(password))
-            return res.status(400).send({ status: false, msg: "Password Must contain uppercase , lowercase , special character and a number" });
+            return res.status(400).send({ status: false, msg: "Password Must contain uppercase , lowercase , special character and a number and length must be 8-16" });
 
         // Hash the password and name for security
         const salt = await bcrypt.genSalt(10)
@@ -81,7 +81,7 @@ const loginUser = async function (req, res, next) {
             },
             "blogging-website-secret-token"
         )
-        
+
         // Set the token in the response header and return a 200 OK response with the token
         res.setHeader("x-api-key", token);
         return res.status(200).send({ status: true, data: token });
