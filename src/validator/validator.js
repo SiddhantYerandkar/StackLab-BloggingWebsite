@@ -37,4 +37,5 @@ const isValidPassword = function (pwd) {
     }
 };
 
+// Export all the validating functions
 module.exports = { isValidId, isEmail, isValidString, isValidPassword };

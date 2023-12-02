@@ -3,10 +3,12 @@ const express = require('express')
 const mongoose = require('mongoose');
 const route = require('./routes/route');
 const errorMiddleware = require('./middleware/errorMiddleware');
+const dotenv = require('dotenv');
+dotenv.config();
 
 //Create an instance of the Express application
 const app = express()
-const PORT = 3000
+const PORT = process.env.PORT || 3000
 
 //Middleware to log requests
 app.use((req, res, next) => {
@@ -18,6 +20,7 @@ app.use((req, res, next) => {
 app.use(express.json())
 
 // Connect to MongoDB
+const uri = process.env.MONGODB_URI
 mongoose.connect(uri, { useNewUrlParser: true })
     .then(() => console.log("MongoDb Connected"))
     .catch((error) => console.log(error))
